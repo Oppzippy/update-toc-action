@@ -1,0 +1,13 @@
+name: "update-toc-action"
+description: "Updates interface version of World of Warcraft TOC files"
+inputs:
+  tocPath:
+    description: "Path to toc file"
+    required: true
+  product:
+    description: "Product id to use for the default '## Version: xxx' in the TOC. 'Version-Classic', etc. will be updated automatically."
+    default: retail
+runs:
+  using: composite
+  steps:
+    - run: bash "${{ inputs.tocPath }}" "${{ inputs.product }}"
