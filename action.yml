@@ -5,7 +5,7 @@ inputs:
     description: "Path to toc file"
     required: true
   product:
-    description: "Product id to use for the default '## Version: xxx' in the TOC. 'Version-Classic', etc. will be updated automatically."
+    description: "Product id to use for the default '## Version: xxx' in the TOC. If using BigWigs packager, 'Version-Classic', etc. will be updated independently."
     default: retail
 runs:
   using: composite
