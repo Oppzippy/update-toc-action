@@ -6,7 +6,7 @@ inputs:
     required: true
   product:
     description: "Product id to use for the default '## Version: xxx' in the TOC. If using BigWigs packager, 'Version-Classic', etc. will be updated independently."
-    default: retail
+    default: wow
 runs:
   using: composite
   steps:
