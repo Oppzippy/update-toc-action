@@ -1,5 +1,8 @@
 name: "update-toc-action"
 description: "Updates interface version of World of Warcraft TOC files"
+branding:
+  icon: arrow-up
+  color: green
 inputs:
   toc-path:
     description: "Path to toc file"
