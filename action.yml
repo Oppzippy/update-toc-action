@@ -10,4 +10,5 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: bash "${{ inputs.tocPath }}" "${{ inputs.product }}"
+    - shell: bash
+      run: bash "${{ inputs.tocPath }}" "${{ inputs.product }}"
