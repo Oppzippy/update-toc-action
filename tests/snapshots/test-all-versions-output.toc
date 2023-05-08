@@ -1,4 +1,8 @@
+## Title: test-all-versions
 ## Version: 100100
 ## Version-Wrath: 30401
 ## Version-Classic: 11403
 
+File1.lua
+File2.lua
+File3.lua

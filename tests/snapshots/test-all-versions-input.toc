@@ -1,4 +1,8 @@
+## Title: test-all-versions
 ## Version: 0
 ## Version-Wrath: 0
 ## Version-Classic: 0
 
+File1.lua
+File2.lua
+File3.lua
