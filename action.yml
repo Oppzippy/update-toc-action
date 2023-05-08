@@ -11,4 +11,4 @@ runs:
   using: composite
   steps:
     - shell: bash
-      run: bash "${{ inputs.toc-path }}" "${{ inputs.product }}"
+      run: ./script.sh "${{ inputs.toc-path }}" "${{ inputs.product }}"
