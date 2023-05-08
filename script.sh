@@ -42,23 +42,40 @@ function update_toc_version() {
 	sed -i -E "s/(## Version$suffix: )[0-9]+/\1$version/g" "$toc_file"
 }
 
+
 products=(wow wow_classic_era wow_classic)
 
 declare -A version_suffixes
 version_suffixes["wow_classic_era"]="-Classic"
 version_suffixes["wow_classic"]="-Wrath"
 
-for product in "${products[@]}"; do
-	tact=$(get_version_tact "$product")
-	game_version=$(get_game_version "$tact" "$region")
-	toc_version=$(game_version_to_toc_version "$game_version")
+# Usage: is_product_in_toc TOC_FILE SUFFIX
+#   TOC_FILE - path to the toc file
+#   SUFFIX - Version suffix to check for
+function is_product_in_toc() {
+	local toc_file="$1"
+	local suffix="$2"
 
-	suffix="${version_suffixes[$product]}"
-	if [[ -n "$suffix" ]]; then
-		update_toc_version "$toc_file_path" "$suffix" "$toc_version"
+	if [[ -n "$suffix" && -n $(cat "$toc_file" | grep "## Version$suffix: ") ]]; then
+		echo true
+	else
+		echo false
 	fi
-	if [[ "$product" = "$default_product" ]]; then
-		update_toc_version "$toc_file_path" "" "$toc_version"
+}
+
+for product in "${products[@]}"; do
+	suffix="${version_suffixes[$product]}"
+	if [[ "$product" = "$default_product" || $(is_product_in_toc "$toc_file_path" "$suffix") = "true" ]]; then
+		tact=$(get_version_tact "$product")
+		game_version=$(get_game_version "$tact" "$region")
+		toc_version=$(game_version_to_toc_version "$game_version")
+
+		if [[ -n "$suffix" ]]; then
+			update_toc_version "$toc_file_path" "$suffix" "$toc_version"
+		fi
+		if [[ "$product" = "$default_product" ]]; then
+			update_toc_version "$toc_file_path" "" "$toc_version"
+		fi
 	fi
 done
 
