@@ -1,7 +1,7 @@
 name: "update-toc-action"
 description: "Updates interface version of World of Warcraft TOC files"
 inputs:
-  tocPath:
+  toc-path:
     description: "Path to toc file"
     required: true
   product:
@@ -11,4 +11,4 @@ runs:
   using: composite
   steps:
     - shell: bash
-      run: bash "${{ inputs.tocPath }}" "${{ inputs.product }}"
+      run: bash "${{ inputs.toc-path }}" "${{ inputs.product }}"
