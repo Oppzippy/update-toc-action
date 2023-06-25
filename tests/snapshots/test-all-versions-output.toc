@@ -1,7 +1,7 @@
 ## Title: test-all-versions
-## Version: 100100
-## Version-Wrath: 30401
-## Version-Classic: 11403
+## Interface: 100100
+## Interface-Wrath: 30401
+## Interface-Classic: 11403
 
 File1.lua
 File2.lua

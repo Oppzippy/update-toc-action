@@ -33,13 +33,13 @@ function game_version_to_toc_version() {
 
 # Usage: update_toc_version TOC_FILE SUFFIX VERSION
 #   TOC_FILE - path to the toc file
-#   SUFFIX - the suffix to use for the version (e.g. "-Classic")
+#   SUFFIX - the suffix to use for the interface key (e.g. "-Classic")
 #   VERSION - the replacement version number
 function update_toc_version() {
 	local toc_file="$1"
 	local suffix="$2"
 	local version="$3"
-	sed -i -E "s/(## Version$suffix: )[0-9]+/\1$version/g" "$toc_file"
+	sed -i -E "s/(## Interface$suffix: )[0-9]+/\1$version/g" "$toc_file"
 }
 
 
@@ -51,12 +51,12 @@ version_suffixes["wow_classic"]="-Wrath"
 
 # Usage: is_product_in_toc TOC_FILE SUFFIX
 #   TOC_FILE - path to the toc file
-#   SUFFIX - Version suffix to check for
+#   SUFFIX - interface version suffix to check for
 function is_product_in_toc() {
 	local toc_file="$1"
 	local suffix="$2"
 
-	if [[ -n "$suffix" && -n $(cat "$toc_file" | grep "## Version$suffix: ") ]]; then
+	if [[ -n "$suffix" && -n $(cat "$toc_file" | grep "## Interface$suffix: ") ]]; then
 		echo true
 	else
 		echo false
