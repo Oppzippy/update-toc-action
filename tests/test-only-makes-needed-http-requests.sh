@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-set -e
-set -o pipefail
+set -euo pipefail
 
 input_toc="snapshots/test-only-makes-needed-http-requests-input.toc"
 expected_output_toc="snapshots/test-only-makes-needed-http-requests-output.toc"

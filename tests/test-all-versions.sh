@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-set -e
-set -o pipefail
+set -euo pipefail
 
 input_toc="snapshots/test-all-versions-input.toc"
 expected_output_toc="snapshots/test-all-versions-output.toc"
