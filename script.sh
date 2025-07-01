@@ -46,7 +46,7 @@ products=(wow wow_classic_era wow_classic)
 
 declare -A version_suffixes
 version_suffixes["wow_classic_era"]="-Classic"
-version_suffixes["wow_classic"]="-Cata"
+version_suffixes["wow_classic"]="-Mists"
 
 # Usage: is_product_in_toc TOC_FILE SUFFIX
 #   TOC_FILE - path to the toc file

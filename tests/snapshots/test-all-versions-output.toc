@@ -1,6 +1,6 @@
 ## Title: test-all-versions
 ## Interface: 100100
-## Interface-Cata: 30401
+## Interface-Mists: 30401
 ## Interface-Classic: 11403
 
 File1.lua
