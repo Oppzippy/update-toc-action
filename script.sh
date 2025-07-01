@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eo pipefail
+set -euo pipefail
 
 toc_file_path="$1"
 default_product="$2"
@@ -63,7 +63,7 @@ function is_product_in_toc() {
 }
 
 for product in "${products[@]}"; do
-	suffix="${version_suffixes[$product]}"
+	suffix="${version_suffixes[$product]:=}"
 	if [[ "$product" = "$default_product" || $(is_product_in_toc "$toc_file_path" "$suffix") = "true" ]]; then
 		tact=$(get_version_tact "$product")
 		game_version=$(get_game_version "$tact" "$region")
