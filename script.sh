@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-set -e
-set -o pipefail
+set -eo pipefail
 
 toc_file_path="$1"
 default_product="$2"
